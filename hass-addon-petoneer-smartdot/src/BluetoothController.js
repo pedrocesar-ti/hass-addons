@@ -1,6 +1,6 @@
 const noble = require('@abandonware/noble');
 
-const serviceUuid = 'fff0';
+const serviceUuid = '1910';
 const commands = {
     stop: '0f0407000008',
     preset_small: '0f0405000107',
@@ -42,7 +42,7 @@ module.exports.BluetoothController = class BluetoothController {
                 }
                 const services = await this.peripheral.discoverServicesAsync([serviceUuid]);
                 const movementService = services[0];
-                const characteristics = await movementService.discoverCharacteristicsAsync(['fff3']);
+                const characteristics = await movementService.discoverCharacteristicsAsync(['2b11']);
                 const movementCharacteristic = characteristics[0];
                 const stringCommand = commands[command];
                 if (!stringCommand) {

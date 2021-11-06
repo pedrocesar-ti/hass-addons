@@ -24,7 +24,7 @@ module.exports.BluetoothController = class BluetoothController {
 
         noble.on('discover', async (peripheral) => {
             console.log(peripheral.advertisement?.localName);
-            if (peripheral.advertisement?.localName === 'TY') {
+            if (peripheral.advertisement?.localName === 'COMMON') {
                 this.peripheral = peripheral;
             }
         });

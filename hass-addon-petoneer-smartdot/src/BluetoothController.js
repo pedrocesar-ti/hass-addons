@@ -42,7 +42,7 @@ module.exports.BluetoothController = class BluetoothController {
                 }
                 const services = await this.peripheral.discoverServicesAsync([serviceUuid]);
                 const movementService = services[0];
-                const characteristics = await movementService.discoverCharacteristicsAsync(['2b11']);
+                const characteristics = await movementService.discoverCharacteristicsAsync(['2B11']);
                 const movementCharacteristic = characteristics[0];
                 const stringCommand = commands[command];
                 if (!stringCommand) {

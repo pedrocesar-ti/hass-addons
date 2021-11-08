@@ -23,7 +23,8 @@ module.exports.BluetoothController = class BluetoothController {
         noble.on('warning', console.log);
 
         noble.on('discover', async (peripheral) => {
-            console.log(peripheral.advertisement?.localName);
+	    console.log("MEU PERIFERICO: " peripheral.advertisement.localName)
+            console.log("PERIFERICO: ", peripheral.advertisement?.localName);
             if (peripheral.advertisement?.localName === 'TY') {
                 this.peripheral = peripheral;
             }
@@ -51,7 +52,7 @@ module.exports.BluetoothController = class BluetoothController {
                 }
                 const buffer = Buffer.from(stringCommand, "hex");
                 const result = await movementCharacteristic.writeAsync(buffer, false);
-                // console.log({ command, stringCommand, buffer, result });
+                console.log({ command, stringCommand, buffer, result });
                 await this.peripheral.disconnectAsync();
                 resolve(true);
             } catch (error) {

@@ -23,7 +23,7 @@ module.exports.BluetoothController = class BluetoothController {
         noble.on('warning', console.log);
 
         noble.on('discover', async (peripheral) => {
-	    console.log("MEU PERIFERICO: ", peripheral.advertisement.localName)
+	    console.log("MEU PERIFERICO: ", peripheral.advertisement.localName);
             console.log("PERIFERICO: ", peripheral.advertisement?.localName);
             if (peripheral.advertisement?.localName === 'TY') {
                 this.peripheral = peripheral;

@@ -8,6 +8,8 @@ const commands = {
     preset_large: '0f0405000309'
 }
 
+const AUTO_DETECTION_NAMES = ['PetCat','TY'];
+
 module.exports.BluetoothController = class BluetoothController {
     constructor() {
         this.initialize();
@@ -23,9 +25,8 @@ module.exports.BluetoothController = class BluetoothController {
         noble.on('warning', console.log);
 
         noble.on('discover', async (peripheral) => {
-	    console.log("MEU PERIFERICO: ", peripheral.advertisement.localName);
-            console.log("PERIFERICO: ", peripheral.advertisement?.localName);
-            if (peripheral.advertisement?.localName === 'TY') {
+            if (AUTO_DETECTION_NAMES.includes(peripheral.advertisement?.localName)) {
+                // console.log(peripheral.advertisement?.localName);
                 this.peripheral = peripheral;
             }
         });
